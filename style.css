@@ -1,0 +1,5049 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: white;
+
+    display: none;
+
+    overflow: hidden;
+}
+
+.screen.active {
+    display: block;
+}
+
+
+/* =========================
+   SPLASH
+========================= */
+
+.splash-content {
+    position: absolute;
+
+    top: 125px;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 5;
+}
+
+.robot {
+    width: 150px;
+    height: 125px;
+
+    position: relative;
+
+    margin-bottom: 10px;
+}
+
+.robot-body {
+    position: absolute;
+
+    width: 115px;
+    height: 90px;
+
+    top: 25px;
+    left: 18px;
+
+    background: #eee;
+
+    border: 6px solid #8d58c8;
+
+    border-radius: 23px;
+
+    box-shadow:
+        0 5px 0 #d3b6eb;
+}
+
+.robot-face {
+    position: absolute;
+
+    width: 84px;
+    height: 63px;
+
+    top: 8px;
+    left: 9px;
+
+    background: #bde9ff;
+
+    border: 3px solid #555;
+
+    border-radius: 10px;
+}
+
+.eye {
+    position: absolute;
+
+    top: 18px;
+
+    font-size: 12px;
+
+    color: #1d315d;
+}
+
+.left-eye {
+    left: 22px;
+}
+
+.right-eye {
+    right: 22px;
+}
+
+.robot-mouth {
+    position: absolute;
+
+    bottom: 3px;
+    left: 34px;
+
+    font-size: 30px;
+}
+
+.cheek {
+    position: absolute;
+
+    bottom: 13px;
+
+    color: #ff829b;
+
+    font-size: 9px;
+}
+
+.left-cheek {
+    left: 7px;
+}
+
+.right-cheek {
+    right: 7px;
+}
+
+.robot-ear {
+    position: absolute;
+
+    width: 25px;
+    height: 48px;
+
+    background: #9966d0;
+
+    border-radius: 10px;
+
+    top: 45px;
+}
+
+.left-ear {
+    left: 2px;
+}
+
+.right-ear {
+    right: 2px;
+}
+
+.robot-antenna {
+    position: absolute;
+
+    width: 5px;
+    height: 27px;
+
+    background: #8d58c8;
+
+    left: 72px;
+    top: 0;
+}
+
+.robot-antenna::before {
+    content: "";
+
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    background: #8d58c8;
+
+    border-radius: 50%;
+
+    left: -4px;
+    top: -7px;
+}
+
+.splash-content h1 {
+    text-align: center;
+
+    color: #152d6c;
+
+    font-size: 29px;
+
+    line-height: 1.05;
+
+    font-weight: 800;
+}
+
+.splash-content p {
+    text-align: center;
+
+    color: #152d6c;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    margin-top: 8px;
+}
+
+.small-login {
+    width: 78px;
+    height: 22px;
+
+    margin-top: 155px;
+
+    background: #70acd6;
+
+    color: #152d6c;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-content {
+    position: relative;
+
+    z-index: 5;
+
+    padding-top: 105px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-content h2 {
+    color: #172d6b;
+
+    font-size: 18px;
+
+    margin-bottom: 80px;
+}
+
+.input-box {
+    width: 190px;
+    height: 42px;
+
+    background: #ddd;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 12px;
+
+    margin-bottom: 25px;
+}
+
+.input-box span {
+    font-size: 16px;
+    margin-right: 9px;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+
+    width: 100%;
+
+    background: transparent;
+
+    font-size: 14px;
+}
+
+.input-box input::placeholder {
+    color: #111;
+    font-weight: 600;
+}
+
+.oval-button {
+    width: 185px;
+    height: 50px;
+
+    margin-top: 25px;
+
+    background: #70acd6;
+
+    border-radius: 50%;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+.bottom-circle {
+    position: absolute;
+
+    width: 300px;
+    height: 170px;
+
+    bottom: -95px;
+
+    left: 45px;
+
+    background: #dfb9f2;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   PILIH KELAS
+========================= */
+
+.class-content {
+    position: relative;
+
+    z-index: 5;
+
+    padding-top: 110px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.class-content h2 {
+    font-size: 17px;
+
+    margin-bottom: 65px;
+}
+
+.class-content button {
+    width: 100px;
+    height: 33px;
+
+    background: #ddd;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+.header::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    width: 310px;
+    height: 130px;
+
+    top: -80px;
+    left: 40px;
+
+    background: #dfb9f2;
+
+    border-radius: 50%;
+}
+
+.header h3 {
+    font-size: 14px;
+}
+
+.icon-button {
+    background: transparent;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home-content {
+    padding: 30px 20px 90px;
+}
+
+.class-card {
+    width: 100%;
+    height: 70px;
+
+    background: #91bee0;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 18px;
+
+    color: #0b2866;
+}
+
+.class-card div:first-child {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.class-card small {
+    font-size: 10px;
+}
+
+.class-card strong {
+    font-size: 15px;
+}
+
+.student-count {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.student-count strong {
+    font-size: 17px;
+
+    color: #111;
+}
+
+.student-count small {
+    color: #111;
+}
+
+.summary {
+    margin-top: 15px;
+}
+
+.summary h2 {
+    font-size: 15px;
+
+    margin-bottom: 4px;
+}
+
+.summary p {
+    font-size: 8px;
+
+    font-weight: 600;
+}
+
+
+.summary-mood {
+    height: 80px;
+
+    border-radius: 9px;
+
+    background: #ddd;
+
+    font-size: 34px;
+
+    transition: 0.2s;
+}
+
+.summary-mood:hover {
+    transform: translateY(-4px);
+}
+
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 58px;
+
+    background: white;
+
+    border-top: 1px solid #ddd;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    z-index: 20;
+}
+
+.nav-item {
+    background: transparent;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 2px;
+
+    font-size: 17px;
+}
+
+.nav-item span {
+    font-size: 8px;
+}
+
+.nav-item.active {
+    color: #5e8fbd;
+}
+
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title {
+    position: relative;
+
+    z-index: 5;
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px;
+}
+
+.page-title button {
+    background: transparent;
+
+    font-size: 28px;
+}
+
+.page-title h3 {
+    font-size: 14px;
+}
+
+
+/* =========================
+   RIWAYAT
+========================= */
+
+.history-content {
+    padding: 10px 20px;
+}
+
+.history-tabs {
+    display: flex;
+
+    justify-content: space-around;
+
+    margin-bottom: 20px;
+}
+
+.tab {
+    background: #d9c7e7;
+
+    border-radius: 10px;
+
+    padding: 5px 22px;
+
+    font-weight: bold;
+
+    font-size: 12px;
+}
+
+.tab.active {
+    background: #cbb4dc;
+}
+
+.history-table {
+    border: 1px solid #eee;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    font-size: 9px;
+}
+
+.table-head,
+.table-row {
+    display: grid;
+
+    grid-template-columns: 1.8fr repeat(4, 1fr);
+
+    align-items: center;
+
+    min-height: 30px;
+
+    padding: 0 7px;
+
+    border-bottom: 1px solid #eee;
+
+    text-align: center;
+}
+
+.table-head {
+    font-weight: bold;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row span:first-child,
+.table-head span:first-child {
+    text-align: left;
+}
+
+
+/* =========================
+   PENGATURAN
+========================= */
+
+.settings-content {
+    padding: 25px 25px;
+}
+
+.settings-title {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin: 15px 0 7px;
+}
+
+.setting-box {
+    width: 100%;
+
+    min-height: 55px;
+
+    border-radius: 9px;
+
+    background: #ddd;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    padding: 8px 15px;
+
+    text-align: left;
+}
+
+.setting-box strong {
+    font-size: 11px;
+}
+
+.setting-box span {
+    font-size: 9px;
+}
+
+.motivation-button {
+    width: 100%;
+
+    margin-top: 40px;
+
+    height: 45px;
+
+    border-radius: 9px;
+
+    background: #dfb9f2;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   MOTIVASI
+========================= */
+
+.motivation-content {
+    height: 600px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+}
+
+.quote {
+    width: 100%;
+
+    min-height: 140px;
+
+    background: #e6eaf8;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #9560e3;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    line-height: 1.4;
+}
+
+.motivation-bottom,
+.result-bottom {
+    position: absolute;
+
+    width: 260px;
+    height: 130px;
+
+    bottom: -75px;
+
+    left: 65px;
+
+    background: #ddd;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   HASIL MOOD
+========================= */
+
+.result-content {
+    position: relative;
+
+    z-index: 5;
+
+    padding-top: 140px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.result-emoji {
+    font-size: 105px;
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-bottom: -30px;
+}
+
+.result-card {
+    width: 315px;
+
+    min-height: 170px;
+
+    background: #ddd;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px 25px;
+}
+
+.result-card p {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    line-height: 1.25;
+}
+
+.back-home {
+    margin-top: 40px;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    background: #70acd6;
+
+    font-weight: bold;
+}
+
+
+
+ #loginError {
+    color: #d9534f;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
+.mood-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.summary-mood {
+    width: 100%;
+    height: 140px;
+    box-sizing: border-box;
+
+    background: #e1e1e1;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.summary-mood .emoji {
+    font-size: 45px;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.mood-count {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+}
+/* ================================
+   MENU GARIS 3
+================================ */
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* ================================
+   SIDE MENU
+================================ */
+
+.side-menu {
+    position: absolute;
+    top: 65px;
+    left: 15px;
+
+    width: 230px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+    display: none;
+
+    z-index: 100;
+}
+
+
+.side-menu.show {
+    display: block;
+}
+
+
+.side-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+
+.side-menu-header h3 {
+    margin: 0;
+}
+
+
+.side-menu-header button {
+    background: none;
+    border: none;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+.side-menu > button {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #eef0ff;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   RIWAYAT
+================================ */
+
+.history-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.history-header button {
+    border: none;
+
+    background: none;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+.history-header h2 {
+    margin: 0;
+}
+
+
+.history-title {
+    margin-bottom: 20px;
+}
+
+
+.history-title h3 {
+    margin-bottom: 5px;
+}
+
+
+.history-title p {
+    margin-top: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   HISTORY LIST
+================================ */
+
+.history-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+.history-item {
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+.history-date {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+
+.history-moods {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+
+.history-mood {
+    background: #f3f4ff;
+
+    border-radius: 12px;
+
+    padding: 10px 5px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.history-mood span {
+    font-size: 25px;
+}
+
+
+.history-mood small {
+    font-size: 11px;
+
+    color: #555;
+}
+/* ================================
+   PILIH JURUSAN IPA / IPS
+================================ */
+
+#majorSelection {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+#majorSelection h2 {
+    margin-bottom: 45px;
+}
+
+.major-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.major-buttons button {
+    width: 100px;
+    height: 40px;
+
+    background: #ddd;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.major-buttons button:hover {
+    background: #cdb4e5;
+}
+
+
+/* ================================
+   RIWAYAT BISA SCROLL
+================================ */
+
+#history {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#history .history-content {
+    padding-bottom: 80px;
+}
+
+
+/* ================================
+   TOMBOL RIWAYAT
+================================ */
+
+.history-tabs .tab {
+    cursor: pointer;
+}
+
+.history-tabs .tab:hover {
+    background: #cbb4dc;
+}
+/* =========================================
+   ANDROID COMPACT - 360 x 800 PX
+========================================= */
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+}
+
+body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: #e5e5e5 !important;
+}
+
+/* FRAME HP */
+.phone-frame {
+    width: 376px !important;
+    height: 816px !important;
+
+    padding: 8px !important;
+
+    box-sizing: border-box !important;
+
+    background: #111 !important;
+
+    border-radius: 35px !important;
+
+    overflow: hidden !important;
+
+    flex-shrink: 0 !important;
+}
+
+/* LAYAR HP = 360 x 800 */
+.phone-screen {
+    width: 360px !important;
+    height: 800px !important;
+
+    box-sizing: border-box !important;
+
+    background: white !important;
+
+    border-radius: 28px !important;
+
+    overflow: hidden !important;
+
+    position: relative !important;
+}
+
+/* APP = 360 x 800 */
+.phone-screen > .app {
+    width: 360px !important;
+    height: 800px !important;
+
+    min-width: 360px !important;
+    max-width: 360px !important;
+
+    min-height: 800px !important;
+    max-height: 800px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    position: relative !important;
+
+    background: white !important;
+
+    overflow: hidden !important;
+}
+
+/* SEMUA HALAMAN = 360 x 800 */
+.phone-screen .screen {
+    width: 360px !important;
+    height: 800px !important;
+
+    min-width: 360px !important;
+    max-width: 360px !important;
+
+    min-height: 800px !important;
+    max-height: 800px !important;
+
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+}
+
+/* =====================================================
+   🌈 COLORFUL SMART SENTIMENT BOARD
+   ===================================================== */
+
+/* Background utama */
+body {
+    background: linear-gradient(
+        135deg,
+        #dcd6ff 0%,
+        #c9e7ff 45%,
+        #eee5ff 100%
+    ) !important;
+}
+
+/* Frame HP */
+.phone-frame {
+    background: linear-gradient(
+        145deg,
+        #5146a5,
+        #7668d9,
+        #4c91c9
+    ) !important;
+
+    box-shadow:
+        0 15px 40px rgba(72, 63, 145, 0.35),
+        0 0 0 4px rgba(255,255,255,0.5);
+}
+
+/* Layar */
+.phone-screen {
+    background: linear-gradient(
+        180deg,
+        #f8f7ff 0%,
+        #edf7ff 100%
+    ) !important;
+}
+
+/* Semua screen */
+.screen {
+    background: linear-gradient(
+        180deg,
+        #f9f7ff 0%,
+        #eef8ff 100%
+    );
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.header {
+    background: linear-gradient(
+        135deg,
+        #7668d9,
+        #70acd6
+    ) !important;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px rgba(112, 172, 214, 0.3);
+}
+
+/* Tombol hamburger & bell */
+.header button {
+    background: rgba(255,255,255,0.22) !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(5px);
+}
+
+/* =====================================================
+   CARD KELAS
+   ===================================================== */
+
+.class-card {
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #e9e3ff
+    ) !important;
+
+    border: 2px solid #d4caff;
+
+    box-shadow:
+        0 8px 20px rgba(118, 104, 217, 0.15);
+}
+
+/* =====================================================
+   RINGKASAN MOOD
+   ===================================================== */
+
+.mood-summary {
+    background: transparent !important;
+}
+
+/* Card mood */
+.mood-card {
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 15px rgba(0,0,0,0.08);
+
+    transition: 0.25s ease;
+}
+
+.mood-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Happy */
+.mood-card:nth-child(1) {
+    background: linear-gradient(
+        145deg,
+        #eaffd8,
+        #b9ef9d
+    ) !important;
+}
+
+/* Sad */
+.mood-card:nth-child(2) {
+    background: linear-gradient(
+        145deg,
+        #dff3ff,
+        #a9d8ff
+    ) !important;
+}
+
+/* Angry */
+.mood-card:nth-child(3) {
+    background: linear-gradient(
+        145deg,
+        #ffe1e1,
+        #ffaaaa
+    ) !important;
+}
+
+/* Crying / Cemas */
+.mood-card:nth-child(4) {
+    background: linear-gradient(
+        145deg,
+        #fff4c9,
+        #ffe08a
+    ) !important;
+}
+
+/* =====================================================
+   EMOJI
+   ===================================================== */
+
+.mood-card .emoji {
+    filter: drop-shadow(0 3px 3px rgba(0,0,0,0.12));
+}
+
+/* =====================================================
+   TOMBOL UTAMA
+   ===================================================== */
+
+button,
+.check-mood-button {
+    transition: 0.25s ease;
+}
+
+.check-mood-button {
+    background: linear-gradient(
+        135deg,
+        #7668d9,
+        #70acd6
+    ) !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 7px 16px rgba(112, 172, 214, 0.35);
+}
+
+.check-mood-button:hover {
+    transform: translateY(-2px);
+}
+
+/* =====================================================
+   BOTTOM NAV
+   ===================================================== */
+
+.bottom-nav {
+    background: rgba(255,255,255,0.92) !important;
+
+    border-top: 1px solid #dcd6ff;
+
+    box-shadow:
+        0 -5px 20px rgba(118,104,217,0.12);
+}
+
+.bottom-nav button {
+    color: #777 !important;
+}
+
+.bottom-nav button.active {
+    color: #685bd1 !important;
+}
+
+/* =====================================================
+   SIDE MENU
+   ===================================================== */
+
+.side-menu {
+    background: linear-gradient(
+        180deg,
+        #7668d9,
+        #70acd6
+    ) !important;
+
+    box-shadow:
+        5px 0 20px rgba(55,45,120,0.25);
+}
+
+.side-menu button {
+    background: rgba(255,255,255,0.15) !important;
+    color: white !important;
+
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.side-menu button:hover {
+    background: rgba(255,255,255,0.28) !important;
+}
+
+/* =====================================================
+   HISTORY
+   ===================================================== */
+
+.history-table {
+    background: white;
+
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 20px rgba(118,104,217,0.12);
+}
+
+.history-table th {
+    background: linear-gradient(
+        135deg,
+        #7668d9,
+        #70acd6
+    ) !important;
+
+    color: white !important;
+}
+
+.history-table tr:nth-child(even) {
+    background: #f5f2ff;
+}
+
+/* =====================================================
+   SETTINGS
+   ===================================================== */
+
+.settings-card {
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f0edff
+    ) !important;
+
+    border: 1px solid #ddd6ff;
+
+    box-shadow:
+        0 6px 16px rgba(118,104,217,0.1);
+}
+
+/* =====================================================
+   LOGIN
+   ===================================================== */
+
+.login-container {
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #eeeaff
+    ) !important;
+}
+
+.login-container input {
+    background: #f8f7ff !important;
+
+    border: 2px solid #d7d0ff !important;
+
+    color: #514a85;
+}
+
+.login-container input:focus {
+    border-color: #7668d9 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(118,104,217,0.12);
+}
+
+.login-container button {
+    background: linear-gradient(
+        135deg,
+        #7668d9,
+        #70acd6
+    ) !important;
+
+    color: white !important;
+}
+
+/* =====================================================
+   CLASS SELECTION
+   ===================================================== */
+
+.class-button {
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #e9e5ff
+    ) !important;
+
+    border: 2px solid #d4ccff !important;
+
+    color: #59508e !important;
+
+    box-shadow:
+        0 6px 14px rgba(118,104,217,0.12);
+}
+
+.class-button:hover {
+    background: linear-gradient(
+        135deg,
+        #7668d9,
+        #70acd6
+    ) !important;
+
+    color: white !important;
+}
+
+/* =====================================================
+   DECORATIVE COLOR BUBBLES
+   ===================================================== */
+
+.phone-screen {
+    position: relative;
+    overflow: hidden;
+}
+
+.phone-screen::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 70px;
+    right: -65px;
+    background: rgba(180, 160, 255, 0.14);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.phone-screen::after {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    bottom: 90px;
+    left: -55px;
+    background: rgba(120, 190, 240, 0.13);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* =========================================
+   FIX LAYER SMART SENTIMENT BOARD
+========================================= */
+
+.phone-screen {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* ISI APLIKASI */
+.phone-screen > .app {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* DEKORASI */
+.phone-screen > .decoration-layer {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 3 !important;
+    pointer-events: none !important;
+}
+/* =========================================================
+   SMART SENTIMENT BOARD
+   PASTEL COLORFUL UI
+   HANYA MENGUBAH TAMPILAN
+   HTML + JAVASCRIPT TETAP
+========================================================= */
+
+
+/* =========================================================
+   BACKGROUND UTAMA
+========================================================= */
+
+body {
+    background:
+        linear-gradient(
+            135deg,
+            #dcd7ff 0%,
+            #d9edff 45%,
+            #eee3ff 100%
+        ) !important;
+}
+
+
+/* =========================================================
+   FRAME HP
+========================================================= */
+
+.phone-frame {
+    background:
+        linear-gradient(
+            145deg,
+            #4e3fa0,
+            #7665d5 45%,
+            #5ba4d4
+        ) !important;
+
+    box-shadow:
+        0 18px 45px rgba(73, 61, 150, 0.30),
+        0 0 0 3px rgba(255,255,255,0.65) !important;
+}
+
+
+/* =========================================================
+   LAYAR
+========================================================= */
+
+.phone-screen {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(190, 170, 255, 0.28) 0,
+            rgba(190, 170, 255, 0) 28%
+        ),
+        radial-gradient(
+            circle at 90% 25%,
+            rgba(130, 190, 255, 0.22) 0,
+            rgba(130, 190, 255, 0) 30%
+        ),
+        linear-gradient(
+            145deg,
+            #f8f5ff 0%,
+            #eef6ff 48%,
+            #f8f3ff 100%
+        ) !important;
+}
+
+
+/* =========================================================
+   SEMUA SCREEN
+========================================================= */
+
+.screen {
+    background:
+        linear-gradient(
+            180deg,
+            #fcfbff 0%,
+            #f1f9ff 100%
+        ) !important;
+
+    color: #25215d;
+}
+
+
+/* =========================================================
+   DEKORASI BACKGROUND SETIAP SCREEN
+========================================================= */
+
+.screen::before {
+    content: "";
+    position: absolute;
+
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(213,196,255,0.55),
+            rgba(213,196,255,0)
+        );
+
+    top: 25px;
+    right: -45px;
+
+    pointer-events: none;
+}
+
+
+.screen::after {
+    content: "";
+    position: absolute;
+
+    width: 150px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(172,224,255,0.45),
+            rgba(172,224,255,0)
+        );
+
+    bottom: -25px;
+    left: -50px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SPLASH
+========================================================= */
+
+#splash {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f7f2ff 55%,
+            #e8f6ff 100%
+        ) !important;
+}
+
+
+.splash-content {
+    z-index: 10;
+}
+
+
+/* Judul */
+
+.splash-content h1 {
+    color: #5140b5 !important;
+
+    text-shadow:
+        0 3px 0 rgba(213,198,255,0.55);
+
+    font-size: 29px !important;
+}
+
+
+/* Deskripsi */
+
+.splash-content p {
+    color: #252b69 !important;
+}
+
+
+/* Tombol login */
+
+.small-login {
+    width: 145px !important;
+    height: 40px !important;
+
+    margin-top: 115px !important;
+
+    border-radius: 25px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7855dc,
+            #5db9e9
+        ) !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 7px 15px rgba(104,82,203,0.25);
+}
+
+
+/* =========================================================
+   ROBOT SPLASH
+========================================================= */
+
+.robot-body {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #e8e5ff
+        ) !important;
+
+    border-color: #7255d3 !important;
+
+    box-shadow:
+        0 6px 0 #c7b8ee,
+        0 10px 20px rgba(89,72,170,0.15) !important;
+}
+
+
+.robot-face {
+    background:
+        linear-gradient(
+            145deg,
+            #dff5ff,
+            #bfe4ff
+        ) !important;
+
+    border-color: #6474b9 !important;
+}
+
+
+.robot-ear {
+    background:
+        linear-gradient(
+            180deg,
+            #8061db,
+            #6aa9dc
+        ) !important;
+}
+
+
+.robot-antenna,
+.robot-antenna::before {
+    background: #7458d3 !important;
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+#login {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f3efff 60%,
+            #e7f5ff 100%
+        ) !important;
+}
+
+
+.login-content {
+    z-index: 10;
+
+    padding-top: 85px !important;
+}
+
+
+.login-content h2 {
+    color: #40378f !important;
+
+    font-size: 22px !important;
+
+    margin-bottom: 55px !important;
+}
+
+
+.input-box {
+    width: 275px !important;
+    height: 48px !important;
+
+    background: rgba(255,255,255,0.90) !important;
+
+    border: 2px solid #d9d0ff;
+
+    border-radius: 14px !important;
+
+    box-shadow:
+        0 5px 15px rgba(98,85,180,0.08);
+
+    margin-bottom: 15px !important;
+}
+
+
+.input-box input::placeholder {
+    color: #7774a2 !important;
+}
+
+
+.input-box:focus-within {
+    border-color: #7960db;
+
+    box-shadow:
+        0 0 0 4px rgba(121,96,219,0.10);
+}
+
+
+.oval-button {
+    width: 275px !important;
+    height: 48px !important;
+
+    border-radius: 25px !important;
+
+    margin-top: 15px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7755db,
+            #5fb8e7
+        ) !important;
+
+    color: white;
+
+    box-shadow:
+        0 8px 18px rgba(103,81,202,0.25);
+}
+
+
+.bottom-circle {
+    background:
+        linear-gradient(
+            135deg,
+            #dbc9ff,
+            #bce6ff
+        ) !important;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   PILIH KELAS
+========================================================= */
+
+#class {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f1edff,
+            #eaf7ff
+        ) !important;
+}
+
+
+.class-content {
+    padding-top: 80px !important;
+
+    z-index: 10;
+}
+
+
+.class-content h2 {
+    color: #37317d;
+
+    font-size: 23px !important;
+
+    margin-bottom: 35px !important;
+}
+
+
+/* tombol kelas */
+
+.class-content button {
+    width: 145px !important;
+    height: 48px !important;
+
+    border-radius: 14px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #eeeaff
+        ) !important;
+
+    border: 2px solid #d9d0ff !important;
+
+    color: #40388d;
+
+    box-shadow:
+        0 5px 15px rgba(101,88,185,0.10);
+
+    margin-bottom: 12px !important;
+}
+
+
+.class-content button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #7758d8,
+            #65b7e6
+        ) !important;
+
+    color: white !important;
+}
+
+
+/* =========================================================
+   HEADER HOME
+========================================================= */
+
+.header {
+    height: 70px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f2efff
+        ) !important;
+
+    color: #332c7c;
+
+    box-shadow:
+        0 4px 15px rgba(78,65,160,0.08);
+}
+
+
+.header::before {
+    background:
+        linear-gradient(
+            135deg,
+            #ded4ff,
+            #c9edff
+        ) !important;
+
+    opacity: 0.75;
+}
+
+
+.header h3 {
+    color: #41368f;
+}
+
+
+/* hamburger + bell */
+
+.icon-button,
+.menu-button {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 12px !important;
+
+    background: rgba(255,255,255,0.75) !important;
+
+    color: #40368e !important;
+
+    box-shadow:
+        0 3px 10px rgba(73,60,150,0.08);
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+#home {
+    background:
+        linear-gradient(
+            180deg,
+            #faf9ff,
+            #f2f8ff
+        ) !important;
+}
+
+
+.home-content {
+    padding:
+        22px 18px 90px !important;
+}
+
+
+/* =========================================================
+   CARD KELAS
+========================================================= */
+
+.class-card {
+    height: 82px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ded6ff,
+            #c9eaff
+        ) !important;
+
+    border: 1px solid #d3c9ff;
+
+    border-radius: 18px !important;
+
+    color: #302a78 !important;
+
+    box-shadow:
+        0 8px 20px rgba(89,74,170,0.13);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.class-card::after {
+    content: "🏫";
+
+    position: absolute;
+
+    right: 85px;
+    top: 18px;
+
+    font-size: 32px;
+
+    opacity: 0.25;
+}
+
+
+.class-card strong {
+    color: #332d80 !important;
+}
+
+
+.student-count strong {
+    color: #40368d !important;
+}
+
+
+/* =========================================================
+   RINGKASAN MOOD
+========================================================= */
+
+.summary {
+    margin-top: 22px !important;
+}
+
+
+.summary h2 {
+    color: #39317f !important;
+
+    font-size: 17px !important;
+}
+
+
+.summary p {
+    color: #74729a;
+
+    font-size: 9px !important;
+}
+
+
+/* =====================================================
+   CARD MOOD - FIX RAPI 5 CARD
+===================================================== */
+
+.mood-summary {
+    display: grid !important;
+
+    grid-template-columns: repeat(5, 1fr) !important;
+
+    gap: 7px !important;
+
+    width: 100% !important;
+
+    margin-top: 18px !important;
+}
+
+
+.summary-mood {
+    width: 100% !important;
+
+    height: 145px !important;
+
+    min-width: 0 !important;
+
+    padding: 10px 5px !important;
+
+    border-radius: 14px !important;
+
+    border: none !important;
+
+    box-shadow:
+        0 5px 12px rgba(70,60,130,0.10);
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    justify-content: center !important;
+
+    align-items: center !important;
+
+    text-align: center !important;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.summary-mood .emoji {
+    font-size: 28px !important;
+
+    line-height: 1 !important;
+
+    margin-bottom: 7px !important;
+}
+
+
+.summary-mood .mood-name {
+    font-size: 10px !important;
+
+    line-height: 1.2 !important;
+
+    margin-bottom: 5px !important;
+
+    color: #25215d !important;
+}
+
+
+.summary-mood .mood-count {
+    font-size: 11px !important;
+
+    line-height: 1.2 !important;
+
+    color: #25215d !important;
+
+    font-weight: 600 !important;
+}
+
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
+
+.bottom-nav {
+    height: 62px !important;
+
+    background:
+        rgba(255,255,255,0.96) !important;
+
+    border-top: 1px solid #e1dcf5 !important;
+
+    box-shadow:
+        0 -5px 20px rgba(65,55,140,0.10);
+}
+
+
+.nav-item {
+    color: #8a88a5;
+
+    font-size: 18px !important;
+}
+
+
+.nav-item span {
+    font-size: 8px !important;
+}
+
+
+.nav-item.active {
+    color: #654ed0 !important;
+}
+
+
+/* =========================================================
+   SIDE MENU
+========================================================= */
+
+.side-menu {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f3efff
+        ) !important;
+
+    border: 1px solid #ddd5ff;
+
+    box-shadow:
+        0 12px 30px rgba(50,40,120,0.18);
+
+    border-radius: 18px !important;
+}
+
+
+.side-menu-header h3 {
+    color: #40368e;
+}
+
+
+.side-menu > button {
+    background:
+        linear-gradient(
+            135deg,
+            #f1edff,
+            #edf8ff
+        ) !important;
+
+    border: 1px solid #ddd6ff !important;
+
+    color: #433b91;
+
+    border-radius: 13px !important;
+}
+
+
+.side-menu > button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #7959d9,
+            #68b6e4
+        ) !important;
+
+    color: white !important;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f1edff
+        );
+}
+
+
+.page-title h3 {
+    color: #40368e;
+
+    font-size: 18px !important;
+}
+
+
+.page-title button {
+    color: #40368e;
+}
+
+
+/* =========================================================
+   RIWAYAT
+========================================================= */
+
+#history {
+    background:
+        linear-gradient(
+            180deg,
+            #faf9ff,
+            #edf7ff
+        ) !important;
+}
+
+
+.history-tabs .tab {
+    background:
+        #eeeaff !important;
+
+    color: #6259a0;
+
+    border: 1px solid #ddd5ff;
+
+    border-radius: 20px !important;
+}
+
+
+.history-tabs .tab.active {
+    background:
+        linear-gradient(
+            90deg,
+            #7656d9,
+            #65b4e4
+        ) !important;
+
+    color: white !important;
+}
+
+
+/* history container */
+
+.history-list {
+    gap: 10px !important;
+}
+
+
+.history-item {
+    background: rgba(255,255,255,0.92) !important;
+
+    border: 1px solid #e2ddf5;
+
+    border-radius: 17px !important;
+
+    box-shadow:
+        0 5px 14px rgba(70,60,140,0.07);
+}
+
+
+.history-date {
+    color: #40368c;
+}
+
+
+.history-mood {
+    background:
+        linear-gradient(
+            135deg,
+            #f5f2ff,
+            #eef8ff
+        ) !important;
+
+    border-radius: 11px !important;
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+#settings {
+    background:
+        linear-gradient(
+            180deg,
+            #faf9ff,
+            #edf7ff
+        ) !important;
+}
+
+
+.settings-content {
+    padding: 20px !important;
+}
+
+
+.settings-title {
+    color: #40368e;
+
+    font-size: 13px !important;
+}
+
+
+.setting-box {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f0edff
+        ) !important;
+
+    border: 1px solid #ded7f5;
+
+    border-radius: 15px !important;
+
+    box-shadow:
+        0 5px 14px rgba(70,60,140,0.07);
+}
+
+
+.setting-box strong {
+    color: #433a8e;
+}
+
+
+.setting-box span {
+    color: #85829e;
+}
+
+
+.motivation-button {
+    height: 48px !important;
+
+    border-radius: 25px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7755db,
+            #62b6e6
+        ) !important;
+
+    color: white;
+
+    box-shadow:
+        0 7px 16px rgba(98,80,197,0.22);
+}
+
+
+/* =========================================================
+   MOTIVASI
+========================================================= */
+
+#motivation {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f0ecff,
+            #e9f7ff
+        ) !important;
+}
+
+
+.motivation-content {
+    padding: 25px !important;
+}
+
+
+.quote {
+    background:
+        linear-gradient(
+            135deg,
+            #eee8ff,
+            #e0f3ff
+        ) !important;
+
+    border: 2px solid #ddd4ff;
+
+    border-radius: 22px !important;
+
+    color: #6346c4 !important;
+
+    box-shadow:
+        0 10px 25px rgba(86,70,170,0.10);
+}
+
+
+/* =========================================================
+   HASIL MOOD
+========================================================= */
+
+#result {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f0ecff,
+            #eaf7ff
+        ) !important;
+}
+
+
+.result-card {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f0edff
+        ) !important;
+
+    border: 2px solid #ddd5ff;
+
+    box-shadow:
+        0 10px 25px rgba(78,65,155,0.10);
+
+    border-radius: 22px !important;
+}
+
+
+.result-card p {
+    color: #40368e;
+}
+
+
+.back-home {
+    background:
+        linear-gradient(
+            90deg,
+            #7655d8,
+            #63b5e5
+        ) !important;
+
+    color: white;
+
+    border-radius: 22px !important;
+}
+
+
+/* =========================================================
+   PILIH JURUSAN
+========================================================= */
+
+.major-buttons button {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #eeeaff
+        ) !important;
+
+    border: 2px solid #d9d1ff !important;
+
+    color: #40368d;
+
+    border-radius: 15px !important;
+
+    box-shadow:
+        0 6px 15px rgba(77,65,155,0.10);
+}
+
+
+.major-buttons button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #7756d9,
+            #67b6e5
+        ) !important;
+
+    color: white !important;
+}
+
+
+/* =========================================================
+   LOGIN ERROR
+========================================================= */
+
+#loginError {
+    color: #e15b72 !important;
+
+    background: #fff0f3;
+
+    padding: 6px 12px;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+#history::-webkit-scrollbar {
+    width: 5px;
+}
+
+#history::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#history::-webkit-scrollbar-thumb {
+    background: #c9bef0;
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   ANIMASI HALUS
+========================================================= */
+
+.summary-mood,
+.class-card,
+.setting-box,
+.history-item,
+.motivation-button,
+.major-buttons button,
+.oval-button {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.summary-mood:hover,
+.class-card:hover,
+.setting-box:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HILANGKAN GARIS / BORDER YANG TERLALU KAKU
+========================================================= */
+
+button:focus {
+    outline: none;
+}
+
+
+/* =========================================================
+   DEKORASI TAMBAHAN
+========================================================= */
+
+#home .home-content::before {
+    content: "✦  ♡  ✧";
+
+    position: absolute;
+
+    top: 82px;
+    right: 15px;
+
+    color: #b6a5f5;
+
+    font-size: 17px;
+
+    letter-spacing: 7px;
+
+    pointer-events: none;
+}
+
+
+#history .history-content::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 88px;
+    right: 25px;
+
+    color: #9d8de7;
+
+    font-size: 22px;
+
+    pointer-events: none;
+}
+
+
+#settings .settings-content::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: 85px;
+    right: 25px;
+
+    color: #b5a5ef;
+
+    font-size: 25px;
+
+    pointer-events: none;
+}
+/* =========================================
+   FIX PILIH KELAS
+   ========================================= */
+
+#class .class-content {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    padding-top: 80px !important;
+}
+
+
+/* Judul pilih kelas */
+#class .class-content h2 {
+    width: 100% !important;
+
+    text-align: center !important;
+
+    margin-bottom: 40px !important;
+
+    color: #39317f !important;
+
+    font-size: 23px !important;
+}
+
+
+/* SEMUA tombol kelas */
+#class .class-content > button {
+    display: block !important;
+
+    width: 220px !important;
+    height: 52px !important;
+
+    margin: 0 auto 16px auto !important;
+
+    border-radius: 16px !important;
+
+    text-align: center !important;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f1edff
+    ) !important;
+
+    border: 2px solid #d9d0ff !important;
+
+    color: #40368d !important;
+
+    font-size: 16px !important;
+
+    font-weight: bold !important;
+
+    box-shadow:
+        0 6px 15px rgba(77,65,155,0.10) !important;
+}
+
+
+/* Saat disentuh */
+#class .class-content > button:hover {
+    background: linear-gradient(
+        135deg,
+        #7656d9,
+        #67b6e5
+    ) !important;
+
+    color: white !important;
+
+    transform: translateY(-2px);
+}
+/* =========================================
+   FIX TOTAL - PILIH KELAS AGAR LURUS
+========================================= */
+
+/* Area pilihan kelas */
+#class .class-content {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    padding-top: 80px !important;
+}
+
+/* Judul */
+#class .class-content h2 {
+    width: 100% !important;
+    text-align: center !important;
+
+    margin: 0 0 45px 0 !important;
+
+    font-size: 23px !important;
+    color: #39317f !important;
+}
+
+/* CONTAINER TOMBOL KELAS */
+#class .grade-buttons {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    gap: 16px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Semua tombol kelas */
+#class .grade-buttons button {
+    width: 220px !important;
+    height: 52px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 16px !important;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f1edff
+    ) !important;
+
+    border: 2px solid #d9d0ff !important;
+
+    color: #40368d !important;
+
+    font-size: 16px !important;
+    font-weight: bold !important;
+
+    text-align: center !important;
+
+    box-shadow:
+        0 6px 15px rgba(77,65,155,0.10) !important;
+}
+
+/* Hover */
+#class .grade-buttons button:hover {
+    background: linear-gradient(
+        135deg,
+        #7656d9,
+        #67b6e5
+    ) !important;
+
+    color: white !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   FIX JIKA TOMBOL BUKAN DI .grade-buttons
+========================================= */
+
+#class .class-content > div:not(#majorSelection) {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+
+    gap: 16px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* =====================================================
+   STATUS PERANGKAT SMART SENTIMENT BOARD
+   HANYA MENAMBAHKAN KARTU
+===================================================== */
+
+.device-status-card {
+    width: 100%;
+    min-height: 62px;
+
+    margin-top: 12px;
+
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f0edff
+    );
+
+    border: 1px solid #ddd6ff;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 14px rgba(70,60,140,0.07);
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* BULAT STATUS */
+
+.device-status-icon {
+    width: 16px;
+    height: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    color: #55c878;
+
+    flex-shrink: 0;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(85,200,120,0.5)
+        );
+}
+
+
+/* TEKS */
+
+.device-status-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.device-status-info strong {
+    font-size: 12px;
+
+    color: #40368e;
+}
+
+
+.device-status-info span {
+    font-size: 9px;
+
+    color: #85829e;
+}
+
+
+/* =====================================================
+   STATUS OFFLINE
+   NANTI BISA DIPAKAI SAAT ALAT MATI
+===================================================== */
+
+.device-status-card.offline
+.device-status-icon {
+    color: #e15b72;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(225,91,114,0.4)
+        );
+}
+/* =====================================================
+   AKUN
+   TAMBAHAN SAJA - TIDAK MENGUBAH DESAIN AWAL
+===================================================== */
+
+#account,
+#activity {
+    background:
+        linear-gradient(
+            180deg,
+            #fcfbff 0%,
+            #f1f9ff 100%
+        ) !important;
+
+    color: #25215d;
+}
+
+
+/* =========================
+   HEADER AKUN
+========================= */
+
+.account-header {
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 0 20px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.account-header button {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.85);
+
+    color: #40368e;
+
+    font-size: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 3px 10px rgba(73,60,150,0.08);
+}
+
+
+.account-header h2 {
+    font-size: 20px;
+
+    color: #29256d;
+
+    margin: 0;
+}
+
+
+/* =========================
+   CONTENT AKUN
+========================= */
+
+.account-content {
+    padding: 12px 20px 40px;
+}
+
+
+/* =========================
+   PROFIL
+========================= */
+
+.account-profile {
+    width: 100%;
+
+    min-height: 105px;
+
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid #e1ddf4;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 15px;
+
+    box-shadow:
+        0 5px 15px rgba(70,60,140,0.07);
+
+    margin-bottom: 15px;
+}
+
+
+.profile-icon {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: #cdd3ce;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 34px;
+
+    margin-right: 15px;
+}
+
+
+.profile-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.profile-info strong {
+    font-size: 16px;
+
+    color: #252525;
+}
+
+
+.profile-info span {
+    font-size: 11px;
+
+    color: #777;
+}
+
+
+/* =========================
+   OPTION AKUN
+========================= */
+
+.account-option {
+    width: 100%;
+
+    min-height: 78px;
+
+    border: none;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    background: rgba(255,255,255,0.75);
+
+    display: flex;
+
+    align-items: center;
+
+    text-align: left;
+
+    padding: 12px 10px;
+
+    cursor: pointer;
+}
+
+
+.account-option:hover {
+    background: #f7f5ff;
+}
+
+
+.account-option-icon {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    margin-right: 12px;
+
+    flex-shrink: 0;
+}
+
+
+.activity-icon {
+    background: #e0f0eb;
+}
+
+
+.info-icon {
+    background: #eeeeee;
+}
+
+
+.security-icon {
+    background: #e8f0f7;
+}
+
+
+.account-option-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    flex: 1;
+}
+
+
+.account-option-text strong {
+    font-size: 14px;
+
+    color: #292929;
+}
+
+
+.account-option-text span {
+    font-size: 10px;
+
+    color: #777;
+}
+
+
+.account-option > b {
+    font-size: 24px;
+
+    font-weight: normal;
+
+    color: #777;
+}
+
+
+/* =========================
+   LOG OUT
+========================= */
+
+.logout-button {
+    width: 100%;
+
+    height: 55px;
+
+    margin-top: 40px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #ffe0e0;
+
+    color: #c52d32;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.logout-button span {
+    font-size: 25px;
+}
+
+
+.logout-button:hover {
+    background: #ffd1d1;
+}
+
+
+/* =====================================================
+   AKTIVITAS ANDA
+===================================================== */
+
+.activity-content {
+    padding: 12px 20px 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.activity-item {
+    width: 100%;
+
+    min-height: 85px;
+
+    border: 1px solid #e7e3f3;
+
+    border-radius: 17px;
+
+    background: rgba(255,255,255,0.92);
+
+    display: flex;
+
+    align-items: center;
+
+    text-align: left;
+
+    padding: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(70,60,140,0.06);
+
+    cursor: pointer;
+}
+
+
+.activity-item:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 15px rgba(70,60,140,0.10);
+}
+
+
+/* ICON AKTIVITAS */
+
+.activity-icon-box {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    margin-right: 12px;
+
+    flex-shrink: 0;
+}
+
+
+.mood-activity {
+    background: #dff3ec;
+
+    color: #347b67;
+}
+
+
+.history-activity {
+    background: #e8e1ff;
+
+    color: #6654b8;
+}
+
+
+.setting-activity {
+    background: #e1efff;
+
+    color: #4b79a8;
+}
+
+
+.notification-activity {
+    background: #fff1cf;
+
+    color: #a27a22;
+}
+
+
+/* TEKS */
+
+.activity-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    flex: 1;
+}
+
+
+.activity-text strong {
+    font-size: 13px;
+
+    color: #292929;
+}
+
+
+.activity-text span {
+    font-size: 10px;
+
+    color: #777;
+}
+
+
+/* KANAN */
+
+.activity-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.activity-right small {
+    font-size: 9px;
+
+    color: #888;
+}
+
+
+.activity-right b {
+    font-size: 22px;
+
+    font-weight: normal;
+
+    color: #777;
+}
+/* =====================================================
+   INFORMASI AKUN
+   TAMBAHAN SAJA
+===================================================== */
+
+#accountInfo {
+    background:
+        linear-gradient(
+            180deg,
+            #fcfbff 0%,
+            #f1f9ff 100%
+        ) !important;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.account-info-content {
+    padding: 15px 20px 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =========================
+   CARD INFORMASI
+========================= */
+
+.info-account-card {
+    width: 100%;
+
+    min-height: 88px;
+
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid #e1ddf4;
+
+    border-radius: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 15px;
+
+    box-shadow:
+        0 5px 15px rgba(70,60,140,0.07);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.info-account-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #e0f0eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+    margin-right: 15px;
+
+    flex-shrink: 0;
+}
+
+
+.class-info-icon {
+    background: #e5edff;
+}
+
+
+.date-info-icon {
+    background: #fff1cf;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.info-account-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.info-account-text small {
+    font-size: 11px;
+
+    color: #777;
+}
+
+
+.info-account-text strong {
+    font-size: 16px;
+
+    color: #29256d;
+}
+/* ================================
+   5 MOOD
+================================ */
+
+```css
+/* =========================================
+   MOOD CARD — CLEAN / MIRIP DESAIN AWAL
+   5 CARD
+========================================= */
+
+.mood-summary {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 7px !important;
+
+    width: 100% !important;
+    margin-top: 16px !important;
+    padding: 0 !important;
+}
+
+/* CARD */
+.summary-mood {
+    width: 100% !important;
+    height: 175px !important;
+
+    padding: 16px 4px 12px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    border-radius: 22px !important;
+    border: none !important;
+
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+
+    box-shadow: 0 5px 12px rgba(60,60,120,0.08) !important;
+}
+
+/* WARNA CARD */
+
+.summary-mood:nth-child(1) {
+    background: #d9f8c4 !important;
+}
+
+.summary-mood:nth-child(2) {
+    background: #d7efff !important;
+}
+
+.summary-mood:nth-child(3) {
+    background: #ffdfe3 !important;
+}
+
+.summary-mood:nth-child(4) {
+    background: #fff1bf !important;
+}
+
+.summary-mood:nth-child(5) {
+    background: #e9ecf7 !important;
+}
+
+
+/* HIASAN ✦ */
+
+.summary-mood .mood-sparkle {
+    position: absolute !important;
+
+    top: 9px !important;
+    right: 10px !important;
+
+    font-size: 13px !important;
+
+    color: rgba(255,255,255,0.9) !important;
+}
+
+
+/* EMOJI */
+
+.summary-mood .emoji {
+    margin: 18px 0 7px 0 !important;
+
+    font-size: 34px !important;
+    line-height: 1 !important;
+}
+
+
+/* NAMA MOOD */
+
+.summary-mood .mood-name {
+    display: block !important;
+
+    margin: 0 !important;
+
+    color: #29265f !important;
+
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+
+    text-align: center !important;
+}
+
+
+/* JUMLAH */
+
+.summary-mood .mood-count {
+    display: flex !important;
+
+    flex-direction: column !important;
+    align-items: center !important;
+
+    margin-top: 7px !important;
+}
+
+
+/* ANGKA */
+
+.summary-mood .mood-count span {
+    font-size: 20px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1 !important;
+
+    color: #29265f !important;
+}
+
+
+/* STUDENTS */
+
+.summary-mood .mood-count small {
+    margin-top: 3px !important;
+
+    font-size: 8px !important;
+
+    color: #686584 !important;
+}
+
+
+/* HILANGKAN EFEK YANG BIKIN CARD TERLALU BESAR */
+
+.summary-mood:hover {
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 7px 15px rgba(60,60,120,0.12) !important;
+}
+
+
+/* =========================================
+   ANDROID COMPACT
+========================================= */
+
+@media (max-width: 380px) {
+
+    .mood-summary {
+        gap: 6px !important;
+    }
+
+    .summary-mood {
+        height: 175px !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        border-radius: 20px !important;
+    }
+
+    .summary-mood .emoji {
+        font-size: 31px !important;
+    }
+
+    .summary-mood .mood-name {
+        font-size: 10px !important;
+    }
+
+    .summary-mood .mood-count span {
+        font-size: 18px !important;
+    }
+
+    .summary-mood .mood-count small {
+        font-size: 7px !important;
+    }
+}
+```
+/* ================================
+   MOOD CARD - FONT LEBIH ESTETIK
+================================ */
+
+.summary-mood .mood-name {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    margin-top: 2px !important;
+}
+
+.summary-mood .mood-count {
+    margin-top: 6px !important;
+}
+
+.summary-mood .mood-count span {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+
+.summary-mood .mood-count small {
+    font-size: 7px !important;
+    font-weight: 500 !important;
+    margin-top: 4px !important;
+}
+
+/* emoji sedikit lebih elegan */
+.summary-mood .emoji {
+    font-size: 32px !important;
+}
+/* =========================================
+   ANIMASI HALUS SMART SENTIMENT BOARD
+========================================= */
+
+/* Animasi saat halaman/screen aktif */
+.screen {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.screen.active {
+    animation: screenFadeIn 0.3s ease;
+}
+
+@keyframes screenFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   EFEK CARD SAAT DITEKAN
+========================================= */
+
+.summary-mood {
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    cursor: pointer;
+}
+
+.summary-mood:active {
+    transform: scale(0.97);
+    box-shadow: 0 3px 8px rgba(60, 60, 120, 0.08);
+}
+
+
+/* Card-card lainnya */
+.class-card,
+.device-status-card,
+.account-option,
+.motivation-card {
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.class-card:active,
+.device-status-card:active,
+.account-option:active,
+.motivation-card:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   TOMBOL SAAT DITEKAN
+========================================= */
+
+button {
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+button:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+}
+/* =====================================================
+   SMART SENTIMENT BOARD
+   DECORATIVE ANIMATION
+   TIDAK MENGUBAH BENTUK UI AWAL
+===================================================== */
+
+
+/* =====================================================
+   DECORATION LAYER
+===================================================== */
+/* ☁️ DEKORASI */
+.decoration-layer {
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+    z-index: 100 !important;
+}
+
+/* ☁️ AWAN */
+.decoration-layer .cloud {
+    position: absolute !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 0.55 !important;
+    font-size: 24px !important;
+    z-index: 101 !important;
+    pointer-events: none !important;
+}
+
+/* awan kiri atas */
+.decoration-layer .cloud1 {
+    top: 80px !important;
+    left: 18px !important;
+}
+
+/* awan kanan atas */
+.decoration-layer .cloud2 {
+    top: 145px !important;
+    right: 18px !important;
+    font-size: 19px !important;
+}
+
+/* awan kiri bawah */
+.decoration-layer .cloud3 {
+    bottom: 130px !important;
+    left: 22px !important;
+    font-size: 17px !important;
+}
+
+/* gerakan lembut */
+@keyframes cloudFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.decoration-layer .cloud {
+    animation: cloudFloat 4s ease-in-out infinite !important;
+}
+
+    
+
+
+/* =====================================================
+   BACKGROUND MOVING
+===================================================== */
+
+.bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(35px);
+    opacity: 0.16;
+    pointer-events: none;
+}
+
+.blob-1 {
+    width: 180px;
+    height: 180px;
+    background: #dfb9f2;
+    top: 5%;
+    left: -80px;
+    animation: blobMove1 10s ease-in-out infinite;
+}
+
+.blob-2 {
+    width: 150px;
+    height: 150px;
+    background: #70acd6;
+    top: 45%;
+    right: -70px;
+    animation: blobMove2 12s ease-in-out infinite;
+}
+
+.blob-3 {
+    width: 130px;
+    height: 130px;
+    background: #f5d9e8;
+    bottom: 5%;
+    left: 15%;
+    animation: blobMove3 14s ease-in-out infinite;
+}
+
+@keyframes blobMove1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(35px, 25px) scale(1.12);
+    }
+}
+
+@keyframes blobMove2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-30px, -20px) scale(1.1);
+    }
+}
+
+@keyframes blobMove3 {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-25px) scale(1.08);
+    }
+}
+
+
+/* =====================================================
+   GENERAL DECORATION
+===================================================== */
+
+.decor {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* =====================================================
+   ✨ SPARKLES
+===================================================== */
+
+.sparkle {
+    color: #dfb9f2;
+    font-size: 16px;
+    opacity: 0.7;
+    animation: sparkleMove 3s ease-in-out infinite;
+}
+
+.s1 {
+    top: 8%;
+    left: 8%;
+}
+
+.s2 {
+    top: 14%;
+    right: 9%;
+    font-size: 12px;
+    animation-delay: .7s;
+}
+
+.s3 {
+    top: 37%;
+    left: 5%;
+    font-size: 13px;
+    animation-delay: 1.3s;
+}
+
+.s4 {
+    top: 54%;
+    right: 6%;
+    font-size: 11px;
+    animation-delay: 1.8s;
+}
+
+.s5 {
+    bottom: 19%;
+    left: 9%;
+    font-size: 14px;
+    animation-delay: 2.2s;
+}
+
+.s6 {
+    bottom: 9%;
+    right: 12%;
+    font-size: 12px;
+    animation-delay: 1s;
+}
+
+@keyframes sparkleMove {
+    0%, 100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translateY(-6px) scale(1.2) rotate(10deg);
+        opacity: 0.9;
+    }
+}
+
+
+/* =====================================================
+   ☁️ CLOUD
+===================================================== */
+
+.cloud {
+    color: white;
+    font-size: 27px;
+    opacity: 0.5;
+    filter: blur(.2px);
+}
+
+.cloud1 {
+    top: 10%;
+    right: 15%;
+    animation: cloudWalk1 8s ease-in-out infinite;
+}
+
+.cloud2 {
+    top: 32%;
+    left: 4%;
+    font-size: 20px;
+    opacity: .35;
+    animation: cloudWalk2 10s ease-in-out infinite;
+}
+
+.cloud3 {
+    bottom: 17%;
+    right: 7%;
+    font-size: 22px;
+    opacity: .4;
+    animation: cloudWalk1 11s ease-in-out infinite reverse;
+}
+
+@keyframes cloudWalk1 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(12px);
+    }
+}
+
+@keyframes cloudWalk2 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+
+/* =====================================================
+   🌿 LEAVES
+===================================================== */
+
+.leaf {
+    font-size: 17px;
+    opacity: .55;
+    animation: leafMove 5s ease-in-out infinite;
+}
+
+.leaf1 {
+    top: 40%;
+    right: 4%;
+}
+
+.leaf2 {
+    bottom: 25%;
+    left: 5%;
+    font-size: 14px;
+    animation-delay: 1s;
+}
+
+.leaf3 {
+    bottom: 8%;
+    right: 25%;
+    font-size: 13px;
+    animation-delay: 2s;
+}
+
+@keyframes leafMove {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(10deg);
+    }
+}
+
+
+/* =====================================================
+   🌼 FLOWERS
+===================================================== */
+
+.flower {
+    color: #f5d9a6;
+    font-size: 15px;
+    opacity: .65;
+    animation: flowerMove 4s ease-in-out infinite;
+}
+
+.flower1 {
+    top: 25%;
+    left: 5%;
+}
+
+.flower2 {
+    bottom: 32%;
+    right: 6%;
+    font-size: 12px;
+    animation-delay: 1.2s;
+}
+
+.flower3 {
+    bottom: 13%;
+    left: 17%;
+    font-size: 13px;
+    animation-delay: 2s;
+}
+
+@keyframes flowerMove {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(8deg);
+    }
+}
+
+
+/* =====================================================
+   💭 BUBBLES
+===================================================== */
+
+.bubble {
+    color: #dfb9f2;
+    opacity: .45;
+    animation: bubbleFloat 5s ease-in-out infinite;
+}
+
+.bubble1 {
+    top: 19%;
+    right: 5%;
+    font-size: 22px;
+}
+
+.bubble2 {
+    top: 22%;
+    right: 2%;
+    font-size: 11px;
+    animation-delay: .8s;
+}
+
+.bubble3 {
+    top: 17%;
+    right: 2%;
+    font-size: 7px;
+    animation-delay: 1.5s;
+}
+
+.bubble4 {
+    bottom: 23%;
+    left: 8%;
+    font-size: 15px;
+    animation-delay: 2s;
+}
+
+@keyframes bubbleFloat {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: .3;
+    }
+
+    50% {
+        transform: translateY(-8px);
+        opacity: .65;
+    }
+}
+
+
+/* =====================================================
+   ✨ DOTS
+===================================================== */
+
+.dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #dfb9f2;
+    opacity: .45;
+    animation: dotPulse 3s ease-in-out infinite;
+}
+
+.dot1 {
+    top: 13%;
+    left: 22%;
+}
+
+.dot2 {
+    top: 30%;
+    right: 19%;
+    width: 4px;
+    height: 4px;
+    animation-delay: .5s;
+}
+
+.dot3 {
+    top: 48%;
+    left: 14%;
+    width: 6px;
+    height: 6px;
+    animation-delay: 1s;
+}
+
+.dot4 {
+    bottom: 28%;
+    right: 18%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 1.5s;
+}
+
+.dot5 {
+    bottom: 16%;
+    left: 25%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 2s;
+}
+
+.dot6 {
+    bottom: 10%;
+    right: 30%;
+    width: 5px;
+    height: 5px;
+    animation-delay: 2.5s;
+}
+
+@keyframes dotPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: .25;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: .65;
+    }
+}
+
+
+/* =====================================================
+   😊 FLOATING EMOJI
+===================================================== */
+
+.floating-emoji {
+    font-size: 17px;
+    opacity: .55;
+    animation: emojiFloat 5s ease-in-out infinite;
+}
+
+.emoji1 {
+    top: 16%;
+    right: 27%;
+}
+
+.emoji2 {
+    bottom: 18%;
+    right: 20%;
+    font-size: 14px;
+    animation-delay: 1s;
+}
+
+.emoji3 {
+    bottom: 34%;
+    left: 9%;
+    font-size: 14px;
+    animation-delay: 2s;
+}
+
+.emoji4 {
+    top: 42%;
+    right: 10%;
+    font-size: 12px;
+    animation-delay: 3s;
+}
+
+@keyframes emojiFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(4deg);
+    }
+}
+
+
+/* =====================================================
+   🤖 ROBOT LOMPAT
+===================================================== */
+
+.robot-decoration {
+    top: 17%;
+    left: 7%;
+    font-size: 24px;
+    opacity: .75;
+    animation: robotJump 2.8s ease-in-out infinite;
+}
+
+@keyframes robotJump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    45% {
+        transform: translateY(-8px);
+    }
+
+    60% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   💫 CARD "HIDUP"
+   TIDAK MEMUTAR CARD BESAR-BESAR
+===================================================== */
+
+.screen .card {
+    animation: cardSoftFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardSoftFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+
+/* =====================================================
+   🎉 CONFETTI
+===================================================== */
+
+.confetti {
+    width: 5px;
+    height: 10px;
+    border-radius: 2px;
+    opacity: .55;
+    animation: confettiFall 5s linear infinite;
+}
+
+.c1 {
+    background: #dfb9f2;
+    top: 5%;
+    left: 18%;
+}
+
+.c2 {
+    background: #70acd6;
+    top: 10%;
+    right: 22%;
+    animation-delay: 1s;
+}
+
+.c3 {
+    background: #f5d9a6;
+    top: 18%;
+    left: 28%;
+    animation-delay: 2s;
+}
+
+.c4 {
+    background: #e8b7d5;
+    top: 7%;
+    right: 35%;
+    animation-delay: 3s;
+}
+
+.c5 {
+    background: #b9d9c5;
+    top: 25%;
+    left: 15%;
+    animation-delay: 1.5s;
+}
+
+.c6 {
+    background: #c9b6e4;
+    top: 13%;
+    right: 8%;
+    animation-delay: 2.5s;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .55;
+    }
+
+    50% {
+        transform: translateY(25px) rotate(90deg);
+    }
+
+    100% {
+        transform: translateY(55px) rotate(180deg);
+        opacity: 0;
+    }
+}
+/* =========================================
+   ✨ DECORATION BOOST
+   TAMBAHAN SAJA — DESAIN AWAL TETAP
+========================================= */
+
+/* ✦ SPARKLES */
+.sparkle {
+    opacity: 0.85 !important;
+    font-size: 17px !important;
+    color: #dfb9f2 !important;
+}
+
+/* ☁️ CLOUD */
+.cloud {
+    opacity: 0.65 !important;
+    font-size: 25px !important;
+}
+
+/* 🌿 LEAF */
+.leaf {
+    opacity: 0.65 !important;
+    font-size: 16px !important;
+}
+
+/* 🌼 FLOWER */
+.flower {
+    opacity: 0.75 !important;
+    font-size: 15px !important;
+}
+
+/* 💭 BUBBLE */
+.bubble {
+    opacity: 0.65 !important;
+    font-size: 17px !important;
+}
+
+/* ✨ DOT */
+.dot {
+    width: 5px !important;
+    height: 5px !important;
+    opacity: 0.65 !important;
+}
+
+/* 😊 FLOATING EMOJI */
+.floating-emoji {
+    opacity: 0.55 !important;
+    font-size: 18px !important;
+}
+
+/* 🤖 ROBOT */
+.robot-decoration {
+    opacity: 0.65 !important;
+    font-size: 25px !important;
+}
+
+/* 🎉 CONFETTI */
+.confetti {
+    opacity: 0.55 !important;
+}
+
+/* =========================================
+   ✨ CARD PRESS EFFECT
+========================================= */
+
+.screen .card,
+.summary-mood,
+.class-card,
+.device-status-card,
+.account-option,
+.motivation-card {
+    transition: transform 0.18s ease;
+}
+
+.screen .card:active,
+.summary-mood:active,
+.class-card:active,
+.device-status-card:active,
+.account-option:active,
+.motivation-card:active {
+    transform: scale(0.97);
+}
+/* =========================================
+   FIX POSISI APLIKASI + DEKORASI
+========================================= */
+
+.phone-screen {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* dekorasi tetap ada di belakang */
+.phone-screen > .decoration-layer {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+/* aplikasi berada di atas dekorasi */
+.phone-screen > .app {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* setiap halaman tetap bisa tampil */
+.app .screen {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 3 !important;
+}
+
+/* halaman yang aktif harus terlihat */
+.app .screen.active {
+    display: block !important;
+    z-index: 4 !important;
+}
+/* =========================================
+   FIX HALAMAN USERNAME + PASSWORD
+   ========================================= */
+
+/* APP HARUS DI ATAS DEKORASI */
+.phone-screen > .app {
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* HALAMAN USERNAME + PASSWORD */
+#login {
+    position: absolute !important;
+    inset: 0 !important;
+    display: none !important;
+    z-index: 20 !important;
+}
+
+/* Kalau #login aktif, TAMPILKAN */
+#login.active {
+    display: block !important;
+    z-index: 20 !important;
+}
+
+/* ISI USERNAME + PASSWORD */
+#login .login-content {
+    position: relative !important;
+    z-index: 50 !important;
+}
+
+/* INPUT HARUS TERLIHAT */
+#login .input-box {
+    position: relative !important;
+    z-index: 50 !important;
+}
+
+#login .input-box input {
+    position: relative !important;
+    z-index: 51 !important;
+}
+/* ===== TEST TAMPILKAN HALAMAN USERNAME ===== */
+
+#login.active {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 999 !important;
+    background: white !important;
+}
+
+#login.active .login-content {
+    display: flex !important;
+    position: relative !important;
+    z-index: 1000 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#login.active h2,
+#login.active .input-box,
+#login.active .oval-button {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+/* =========================================
+   🔥 FINAL FIX — APP JANGAN KETUTUP DEKORASI
+========================================= */
+
+/* Kotak HP */
+.phone-screen {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Dekorasi tetap ada, tapi berada DI BELAKANG isi aplikasi */
+.phone-screen > .decoration-layer {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+/* APLIKASI berada di DEPAN dekorasi */
+.phone-screen > .app {
+    position: relative !important;
+    z-index: 10 !important;
+    width: 360px !important;
+    height: 800px !important;
+    background: transparent !important;
+}
+
+/* Semua halaman berada di depan dekorasi */
+.phone-screen > .app > .screen {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 20 !important;
+}
+
+/* Halaman aktif HARUS terlihat */
+.phone-screen > .app > .screen.active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 30 !important;
+}
+
+/* Isi halaman login username/password */
+#login.active .login-content {
+    position: relative !important;
+    z-index: 50 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Input dan tombol login */
+#login.active .input-box,
+#login.active .oval-button,
+#login.active h2,
+#login.active #loginError {
+    position: relative !important;
+    z-index: 60 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+/* ☁️ AWAN KECIL */
+.cloud {
+    position: absolute !important;
+    font-size: 22px !important;
+    opacity: 0.55 !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    animation: cloudFloat 4s ease-in-out infinite;
+}
+
+.cloud1 {
+    top: 90px;
+    left: 25px;
+}
+
+.cloud2 {
+    top: 170px;
+    right: 25px;
+    font-size: 18px !important;
+    animation-delay: 1s;
+}
+
+.cloud3 {
+    bottom: 150px;
+    left: 30px;
+    font-size: 16px !important;
+    animation-delay: 2s;
+}
+
+@keyframes cloudFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+/* =========================================
+   ☁️ DEKORASI LOGIN
+   TAMBAHAN SAJA — JANGAN MENGUBAH DESAIN
+========================================= */
+
+#login .login-decor-only {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ☁️ Awan kiri */
+#login .login-cloud-only {
+    position: absolute;
+    font-size: 22px;
+    opacity: 0.45;
+}
+
+#login .cloud-left {
+    top: 75px;
+    left: 20px;
+}
+
+#login .cloud-right {
+    top: 185px;
+    right: 18px;
+    font-size: 18px;
+}
+
+/* ✦ Sparkle */
+#login .login-sparkle-only {
+    position: absolute;
+    color: #dfb9f2;
+    font-size: 20px;
+    opacity: 0.65;
+}
+
+#login .sparkle-left {
+    top: 145px;
+    left: 32px;
+}
+
+#login .sparkle-right {
+    top: 210px;
+    right: 28px;
+    font-size: 16px;
+}
+
+/* 🌼 Bunga kanan bawah */
+#login .login-flower-only {
+    position: absolute;
+    right: 22px;
+    bottom: 115px;
+    font-size: 18px;
+    opacity: 0.55;
+}
+
+/* 🌿 Daun kiri bawah */
+#login .login-leaf-only {
+    position: absolute;
+    left: 20px;
+    bottom: 145px;
+    font-size: 18px;
+    opacity: 0.5;
+}
+
+/* ✨ Titik kecil */
+#login .login-dot-only {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #dfb9f2;
+    opacity: 0.55;
+}
+
+#login .dot-left {
+    left: 42px;
+    bottom: 220px;
+}
+
+#login .dot-right {
+    right: 38px;
+    bottom: 190px;
+}
+
+/* TULISAN DEKORASI DI BAWAH JUMLAH EMOJI */
+ 
+/* TULISAN DI BAWAH CARD MOOD */
+
+/* ✨ SMART SENTIMENT BOARD — PASTEL GRADIENT */
+
+/* SMART SENTIMENT BOARD — PASTEL AESTHETIC */
+
+/* ===== DOODLE TITLE SMART SENTIMENT BOARD ===== */
+
+.home-app-title {
+    position: absolute;
+    top: 660px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+}
+
+/* Tulisan utama */
+.doodle-title {
+    display: inline-block;
+    white-space: nowrap;
+
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    background: linear-gradient(
+        90deg,
+        #bd8cf2,
+        #79c9f5,
+        #f39bdc,
+        #b98af2
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    -webkit-text-stroke: 1.5px white;
+    paint-order: stroke fill;
+
+    filter: drop-shadow(0 2px 2px #d9c8ff);
+}
+
+/* Garis doodle di bawah tulisan */
+.doodle-underline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.doodle-wave {
+    display: block;
+    width: 65px;
+    height: 9px;
+    border-bottom: 3px solid;
+    border-radius: 50%;
+}
+
+.wave-blue {
+    border-color: #8dcaff;
+    transform: rotate(-5deg);
+}
+
+.wave-pink {
+    border-color: #f2a4df;
+    transform: rotate(5deg);
+}
+
+/* Hati kecil */
+.doodle-heart {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: bold;
+    color: #c08af3;
+    -webkit-text-stroke: 1px white;
+}
+
+/* Sparkle samping */
+.title-sparkle {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: #c89af4;
+    text-shadow: 0 0 5px #eadbff;
+}
+
+.sparkle-left {
+    left: 25px;
+    top: -12px;
+}
+
+.sparkle-right {
+    right: 25px;
+    top: -8px;
+}
